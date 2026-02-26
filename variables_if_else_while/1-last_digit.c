@@ -3,10 +3,11 @@
 #include <stdio.h>
 
 /**
- * main - نقطة البداية
+ * main - Entry point
  *
- * Description: يستخرج الرقم الأخير من n ويطبع وصفاً له
- * Return: دائماً 0
+ * Description: Extracts the last digit of n and prints
+ * a message based on its value.
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
@@ -15,8 +16,6 @@ int main(void)
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-
-	/* استخراج الرقم الأخير باستخدام % 10 */
 	last_d = n % 10;
 
 	printf("Last digit of %d is %d ", n, last_d);
