@@ -10,19 +10,20 @@ int main(void)
 {
 	char ch;
 
-	/* الحلقة الأولى: طباعة الحروف الصغيرة */
+	/* Print lowercase a-z */
 	for (ch = 'a'; ch <= 'z'; ch++)
 	{
-		putchar(ch); /* الاستخدام الأول */
+		putchar(ch);
 	}
 
-	/* الحلقة الثانية: طباعة الحروف الكبيرة */
+	/* Print uppercase A-Z */
 	for (ch = 'A'; ch <= 'Z'; ch++)
 	{
-		putchar(ch); /* الاستخدام الثاني (أعدنا استخدام نفس السطر برمجياً) */
+		putchar(ch);
 	}
 
-	putchar('\n'); /* الاستخدام الثالث والأخير */
+	/* Print newline */
+	putchar('\n');
 
 	return (0);
 }
