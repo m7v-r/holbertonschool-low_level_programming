@@ -10,7 +10,6 @@ void print_number(int n)
 {
 	unsigned int num;
 
-	/* التعامل مع الأرقام السالبة */
 	if (n < 0)
 	{
 		_putchar('-');
@@ -21,12 +20,10 @@ void print_number(int n)
 		num = n;
 	}
 
-	/* استخدام العودية لطباعة الخانات بالترتيب الصحيح */
 	if (num / 10)
 	{
 		print_number(num / 10);
 	}
 
-	/* طباعة الخانة الأخيرة */
 	_putchar((num % 10) + '0');
-}
+}c
