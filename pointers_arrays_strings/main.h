@@ -15,7 +15,7 @@ char *_strcpy(char *dest, char *src);
 int _atoi(char *s);
 char *_strcat(char *dest, char *src);
 char *leet(char *);
-
+void set_string(char **s, char *to);
 
 
 
