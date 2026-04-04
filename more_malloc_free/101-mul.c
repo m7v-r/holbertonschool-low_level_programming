@@ -35,6 +35,34 @@ int _strlen(char *s)
 }
 
 /**
+ * multiply - handles the multiplication logic
+ * @s1: first string number
+ * @s2: second string number
+ * @len1: length of s1
+ * @len2: length of s2
+ * @result: pointer to result array
+ */
+void multiply(char *s1, char *s2, int len1, int len2, int *result)
+{
+	int i, j, digit1, digit2, carry;
+
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		digit1 = s1[i] - '0';
+		carry = 0;
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			digit2 = s2[j] - '0';
+			carry += result[i + j + 1] + (digit1 * digit2);
+			result[i + j + 1] = carry % 10;
+			carry /= 10;
+		}
+		if (carry > 0)
+			result[i + j + 1] += carry;
+	}
+}
+
+/**
  * main - multiplies two positive numbers
  * @argc: number of arguments
  * @argv: array of arguments
@@ -43,7 +71,7 @@ int _strlen(char *s)
 int main(int argc, char *argv[])
 {
 	char *s1, *s2;
-	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
+	int len1, len2, len, i, a = 0, *result;
 
 	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
 	{
@@ -58,20 +86,7 @@ int main(int argc, char *argv[])
 		return (1);
 	for (i = 0; i < len; i++)
 		result[i] = 0;
-	for (len1 = len1 - 1; len1 >= 0; len1--)
-	{
-		digit1 = s1[len1] - '0';
-		carry = 0;
-		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
-		{
-			digit2 = s2[len2] - '0';
-			carry += result[len1 + len2 + 1] + (digit1 * digit2);
-			result[len1 + len2 + 1] = carry % 10;
-			carry /= 10;
-		}
-		if (carry > 0)
-			result[len1 + len2 + 1] += carry;
-	}
+	multiply(s1, s2, len1, len2, result);
 	for (i = 0; i < len; i++)
 	{
 		if (result[i])
