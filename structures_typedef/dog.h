@@ -6,6 +6,8 @@
  * @name: Dog's name
  * @age: Dog's age
  * @owner: Owner's name
+ *
+ * Description: A structure that stores dog information
  */
 struct dog
 {
@@ -14,10 +16,8 @@ struct dog
 	char *owner;
 };
 
-/* البروتوتايب الخاص بالمهمة رقم 1 */
+/* Prototypes */
 void init_dog(struct dog *d, char *name, float age, char *owner);
-
-/* البروتوتايب الخاص بالمهمة رقم 2 - أضف هذا السطر الآن */
 void print_dog(struct dog *d);
 
 #endif /* DOG_H */
