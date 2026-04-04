@@ -35,31 +35,12 @@ int _strlen(char *s)
 }
 
 /**
- * multiply - handles the multiplication logic
- * @s1: first string number
- * @s2: second string number
- * @l1: length of s1
- * @l2: length of s2
- * @res: pointer to result array
+ * errors - handles errors for main
  */
-void multiply(char *s1, char *s2, int l1, int l2, int *res)
+void errors(void)
 {
-	int i, j, digit1, digit2, carry;
-
-	for (i = l1 - 1; i >= 0; i--)
-	{
-		digit1 = s1[i] - '0';
-		carry = 0;
-		for (j = l2 - 1; j >= 0; j--)
-		{
-			digit2 = s2[j] - '0';
-			carry += res[i + j + 1] + (digit1 * digit2);
-			res[i + j + 1] = carry % 10;
-			carry /= 10;
-		}
-		if (carry > 0)
-			res[i + j + 1] += carry;
-	}
+	printf("Error\n");
+	exit(98);
 }
 
 /**
@@ -71,32 +52,42 @@ void multiply(char *s1, char *s2, int l1, int l2, int *res)
 int main(int argc, char *argv[])
 {
 	char *s1, *s2;
-	int len1, len2, len, i, a = 0, *result;
+	int len1, len2, len, i, j, carry, digit1, digit2, *res, a = 0;
 
 	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
-	{
-		printf("Error\n");
-		exit(98);
-	}
+		errors();
 	s1 = argv[1], s2 = argv[2];
 	len1 = _strlen(s1), len2 = _strlen(s2);
 	len = len1 + len2;
-	result = malloc(sizeof(int) * len);
-	if (!result)
+	res = malloc(sizeof(int) * len);
+	if (!res)
 		return (1);
 	for (i = 0; i < len; i++)
-		result[i] = 0;
-	multiply(s1, s2, len1, len2, result);
+		res[i] = 0;
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		digit1 = s1[i] - '0';
+		carry = 0;
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			digit2 = s2[j] - '0';
+			carry += res[i + j + 1] + (digit1 * digit2);
+			res[i + j + 1] = carry % 10;
+			carry /= 10;
+		}
+		if (carry > 0)
+			res[i + j + 1] += carry;
+	}
 	for (i = 0; i < len; i++)
 	{
-		if (result[i])
+		if (res[i])
 			a = 1;
 		if (a)
-			_putchar(result[i] + '0');
+			_putchar(res[i] + '0');
 	}
 	if (!a)
 		_putchar('0');
 	_putchar('\n');
-	free(result);
+	free(res);
 	return (0);
 }
