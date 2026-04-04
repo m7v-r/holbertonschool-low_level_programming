@@ -14,7 +14,10 @@ struct dog
 	char *owner;
 };
 
-/* أضف هذا السطر في ملف dog.h */
+/* البروتوتايب الخاص بالمهمة رقم 1 */
 void init_dog(struct dog *d, char *name, float age, char *owner);
+
+/* البروتوتايب الخاص بالمهمة رقم 2 - أضف هذا السطر الآن */
+void print_dog(struct dog *d);
 
 #endif /* DOG_H */
