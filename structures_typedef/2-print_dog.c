@@ -4,7 +4,10 @@
 
 /**
  * print_dog - Prints a struct dog
- * @d: Pointer to struct dog to print
+ * @d: A pointer to the struct dog to print
+ *
+ * Description: If an element of d is NULL, print (nil) instead.
+ * If d is NULL, print nothing.
  */
 void print_dog(struct dog *d)
 {
