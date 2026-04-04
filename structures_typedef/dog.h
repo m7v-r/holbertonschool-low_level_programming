@@ -2,12 +2,10 @@
 #define DOG_H
 
 /**
- * struct dog - A new type describing a dog
- * @name: First member
- * @age: Second member
- * @owner: Third member
- *
- * Description: Header file that defines a new type struct dog
+ * struct dog - Basic info about a dog
+ * @name: Dog's name
+ * @age: Dog's age
+ * @owner: Owner's name
  */
 struct dog
 {
@@ -15,5 +13,8 @@ struct dog
 	float age;
 	char *owner;
 };
+
+/* أضف هذا السطر في ملف dog.h */
+void init_dog(struct dog *d, char *name, float age, char *owner);
 
 #endif /* DOG_H */
