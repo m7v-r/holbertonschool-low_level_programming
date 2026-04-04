@@ -38,27 +38,27 @@ int _strlen(char *s)
  * multiply - handles the multiplication logic
  * @s1: first string number
  * @s2: second string number
- * @len1: length of s1
- * @len2: length of s2
- * @result: pointer to result array
+ * @l1: length of s1
+ * @l2: length of s2
+ * @res: pointer to result array
  */
-void multiply(char *s1, char *s2, int len1, int len2, int *result)
+void multiply(char *s1, char *s2, int l1, int l2, int *res)
 {
 	int i, j, digit1, digit2, carry;
 
-	for (i = len1 - 1; i >= 0; i--)
+	for (i = l1 - 1; i >= 0; i--)
 	{
 		digit1 = s1[i] - '0';
 		carry = 0;
-		for (j = len2 - 1; j >= 0; j--)
+		for (j = l2 - 1; j >= 0; j--)
 		{
 			digit2 = s2[j] - '0';
-			carry += result[i + j + 1] + (digit1 * digit2);
-			result[i + j + 1] = carry % 10;
+			carry += res[i + j + 1] + (digit1 * digit2);
+			res[i + j + 1] = carry % 10;
 			carry /= 10;
 		}
 		if (carry > 0)
-			result[i + j + 1] += carry;
+			res[i + j + 1] += carry;
 	}
 }
 
