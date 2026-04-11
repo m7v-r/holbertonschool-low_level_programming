@@ -1,19 +1,16 @@
-section .data
-	msg db "Hello, World", 10
-	msg_len equ $ - msg
-
 section .text
 	global main
 
 main:
-	/* syscall: write(1, msg, msg_len) */
-	mov rax, 1
-	mov rdi, 1
-	mov rsi, msg
-	mov rdx, msg_len
+	mov rax, 1          ; syscall: write
+	mov rdi, 1          ; file descriptor: stdout
+	mov rsi, msg        ; pointer to string
+	mov rdx, 13         ; length of string
 	syscall
 
-	/* syscall: exit(0) */
-	mov rax, 60
-	xor rdi, rdi
+	mov rax, 60         ; syscall: exit
+	xor rdi, rdi        ; status: 0
 	syscall
+
+section .data
+	msg db "Hello, World", 10
