@@ -1,1 +1,1 @@
-Doubly Linked Lists Project
+This project covers Doubly Linked Lists in C
