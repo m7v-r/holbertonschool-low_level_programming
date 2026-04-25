@@ -1,4 +1,6 @@
 #include "main.h"
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
  * create_file - Creates a file and writes text_content into it.
@@ -14,19 +16,13 @@ int create_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	/* Calculate length of text_content if it's not NULL */
 	if (text_content != NULL)
 	{
 		while (text_content[len])
 			len++;
 	}
 
-	/*
-	 * O_CREAT: Create file if it doesn't exist
-	 * O_RDWR: Open for reading and writing
-	 * O_TRUNC: Truncate file to 0 length if it exists
-	 * 0600: Permissions rw-------
-	 */
+	/* Added <fcntl.h> to resolve implicit declaration of open and O_ flags */
 	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 	if (fd == -1)
 		return (-1);
