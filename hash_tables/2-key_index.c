@@ -11,9 +11,9 @@ unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
 	unsigned long int hash;
 
-	/* 1. الحصول على قيمة الهاش الكبيرة باستخدام djb2 */
+	/* Get the hash value using djb2 algorithm */
 	hash = hash_djb2(key);
 
-	/* 2. تحجيم القيمة لتناسب حجم المصفوفة باستخدام % */
+	/* Return the index using modulo operator */
 	return (hash % size);
 }
