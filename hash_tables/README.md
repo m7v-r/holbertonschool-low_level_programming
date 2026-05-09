@@ -1,27 +1,21 @@
 # C - Hash Tables
 
 ## Description
-This project focuses on the implementation and understanding of Hash Tables in C. It covers hash functions, collision handling using chaining, and memory management for complex data structures.
+Implementation of Hash Table data structure in C, including hash functions and collision handling using chaining.
 
-## Learning Objectives
-* Understand the concept of a hash function.
-* Implement collision handling through linked lists (chaining).
-* Manage dynamic memory for arrays and structures.
+## Tasks
+* **0-hash_table_create.c**: Function that creates a hash table.
+* **1-djb2.c**: Implementation of the djb2 hash algorithm.
+* **2-key_index.c**: Function that gives the index of a key.
+* **3-hash_table_set.c**: Function that adds an element to the hash table.
+* **4-hash_table_get.c**: Function that retrieves a value associated with a key.
+* **5-hash_table_print.c**: Function that prints a hash table.
+* **6-hash_table_delete.c**: Function that deletes a hash table.
 
 ## Requirements
-* Compiled on Ubuntu 20.04 LTS using `gcc`.
-* Flags: `-Wall -Werror -Wextra -pedantic -std=gnu89`.
-* Code style: `Betty`.
+* Ubuntu 20.04 LTS
+* gcc flags: -Wall -Werror -Wextra -pedantic -std=gnu89
+* Style: Betty
 
-## Data Structures
-```c
-typedef struct hash_node_s {
-    char *key;
-    char *value;
-    struct hash_node_s *next;
-} hash_node_t;
-
-typedef struct hash_table_s {
-    unsigned long int size;
-    hash_node_t **array;
-} hash_table_t;
+## Author
+[Your Name]
